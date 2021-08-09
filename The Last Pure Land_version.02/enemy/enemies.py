@@ -54,7 +54,7 @@ class Enemy:
             self.move_count = 0
             self.path_index += 1
             self.rect.center = self.path[self.path_index]
-class Enemy_Alpha(Enemy):
+class Enemy1(Enemy):
     def __init__(self):
         self.p = random.randint(0,1)
         if self.p == 0:
@@ -70,13 +70,16 @@ class Enemy_Alpha(Enemy):
             self.stride = 1.2
         self.image = pygame.transform.scale(ENEMY_IMAGE_1, (40, 40))
         self.rect = self.image.get_rect()
+        self.rect.center = self.path[self.path_index]
+        self.path_index = 0
+        self.move_count = 0
         if wave == 2:
             self.health = 12
         else:
             self.health = 10
         self.max_health = 10
 
-class Enemy_Delta(Enemy):
+class Enemy2(Enemy):
     def __init__(self):
         self.p = random.randint(0,1)
         if self.p == 0:
@@ -92,11 +95,14 @@ class Enemy_Delta(Enemy):
             self.stride = 1.0
         self.image = pygame.transform.scale(ENEMY_IMAGE_2, (40, 40))
         self.rect = self.image.get_rect()
+        self.rect.center = self.path[self.path_index]
+        self.path_index = 0
+        self.move_count = 0
         self.health = 15
         self.max_health = 15
         
                 
-class Enemy_Gamma(Enemy):
+class Enemy3(Enemy):
     def __init__(self):
         self.p = random.randint(0,1)
         if self.p == 0:
@@ -112,6 +118,9 @@ class Enemy_Gamma(Enemy):
             self.stride = 0.8
         self.image = pygame.transform.scale(ENEMY_IMAGE_3, (40, 40))
         self.rect = self.image.get_rect()
+        self.rect.center = self.path[self.path_index]
+        self.path_index = 0
+        self.move_count = 0
         self.health = 40
         self.max_health = 40
 
@@ -161,11 +170,11 @@ class EnemyGroup:
                 rand_num = randint(0,100)
                 class_enemy = rand_num % 3
                 if class_enemy == 0:
-                    self.__reserved_members.append(Enemy_Alpha())#append進去
+                    self.__reserved_members.append(Enemy1())#append進去
                 elif class_enemy == 1:
-                    self.__reserved_members.append(Enemy_Delta())#append進去
+                    self.__reserved_members.append(Enemy2())#append進去
                 elif class_enemy == 2:
-                    self.__reserved_members.append(Enemy_Gamma())#append進去
+                    self.__reserved_members.append(Enemy3())#append進去
 
             return True
             

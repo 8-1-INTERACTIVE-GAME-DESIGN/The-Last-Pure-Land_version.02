@@ -7,14 +7,14 @@ UPGRADE_BTN_IMAGE = pygame.transform.scale(pygame.image.load(os.path.join("image
 SELL_BTN_IMAGE = pygame.transform.scale(pygame.image.load(os.path.join("images", "sell.png")), (40, 40))
 
 RAPID_TEST_BTN_IMAGE = pygame.transform.scale(pygame.image.load(os.path.join("images", "rapid_test.png")), (40, 40))
-PCR_BTN_IMAGE = pygame.transform.scale(pygame.image.load(os.path.join("images", "pcr.png")), (40, 40))
+DISINFECTION_BTN_IMAGE = pygame.transform.scale(pygame.image.load(os.path.join("images", "Disinfection.png")), (40, 40))
 ALCOHOL_BTN_IMAGE = pygame.transform.scale(pygame.image.load(os.path.join("images", "alcohol.png")), (15, 40))
 
 muse_button_image = pygame.transform.scale(pygame.image.load("images/muse.png"), (80, 80))
 music_button_image = pygame.transform.scale(pygame.image.load("images/sound.png"), (80, 80))
-continue_button_image = pygame.transform.scale(pygame.image.load("images/continue.png"), (80, 80))
+A_O_E_button_image = pygame.transform.scale(pygame.image.load("images/A_O_E.png"), (80, 80))
 pause_button_image = pygame.transform.scale(pygame.image.load("images/pause.png"), (80, 80))
-
+heal_button_image = pygame.transform.scale(pygame.image.load("images/heal.png"), (80, 80))
 
 class Button:
     def __init__(self, image, name: str, x: int, y: int):
@@ -56,7 +56,7 @@ class BuildMenu(Menu):
         super().__init__(x, y)
         self._buttons = [Button(ALCOHOL_BTN_IMAGE, "alcohol", self.rect.centerx, self.rect.centery - 70),
                          Button(RAPID_TEST_BTN_IMAGE, "rapid test", self.rect.centerx, self.rect.centery + 75),
-                         Button(PCR_BTN_IMAGE, "pcr", self.rect.centerx - 65, self.rect.centery + 10),
+                         Button(DISINFECTION_BTN_IMAGE, "Disinfection", self.rect.centerx - 65, self.rect.centery + 10),
                          ]
 
 
@@ -64,8 +64,9 @@ class MainMenu:
     def __init__(self):
         self._buttons = [Button(music_button_image, "mute", 38, 560),
                          Button(muse_button_image, "music", 130, 560),
-                         Button(continue_button_image, "continue", 900, 560),
-                         Button(pause_button_image, "pause", 985, 560)]
+                         Button(heal_button_image, "heal", 825, 560),
+                         Button(A_O_E_button_image, "aoe", 905, 560),
+                         Button(pause_button_image, "pause", 995, 560)]
 
     @property
     def buttons(self):

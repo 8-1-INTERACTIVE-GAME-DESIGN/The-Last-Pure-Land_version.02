@@ -3,21 +3,19 @@ import os
 from tower.towers import Tower, Vacancy
 from enemy.enemies import EnemyGroup
 from menu.menus import UpgradeMenu, BuildMenu, MainMenu
-from game.user_request import RequestSubject, TowerFactory, TowerSeller, TowerDeveloper, EnemyGenerator, Muse, Music, Pause, A_O_E,Heal
+from game.user_request import RequestSubject, TowerFactory, TowerSeller, TowerDeveloper, EnemyGenerator, Muse, Music
 from settings import WIN_WIDTH, WIN_HEIGHT, BACKGROUND_IMAGE
-clock = pygame.time.Clock()  
+
 
 class GameModel:
     def __init__(self):
         # data
         self.bg_image = pygame.transform.scale(BACKGROUND_IMAGE, (WIN_WIDTH, WIN_HEIGHT))
-        self.__towers = []
+        self.__towers = [Tower.Alcohol(250, 380), Tower.RapidTest(180, 300)]
         self.__enemies = EnemyGroup()
         self.__menu = None
         self.__main_menu = MainMenu()
-        self.__plots = [Vacancy(702, 483), Vacancy(555,412), Vacancy(663,290),Vacancy(816, 342),Vacancy(970, 328),Vacancy(839, 200),
-                        Vacancy(722, 124), Vacancy(492,225), Vacancy(409,344),Vacancy(406, 490),Vacancy(224, 268)]
-        self.wave_to_enemies = [30, 30, 50]
+        self.__plots = [Vacancy(50, 350), Vacancy(350, 280)]
         # selected item
         self.selected_plot = None
         self.selected_tower = None
@@ -30,16 +28,13 @@ class GameModel:
         self.generator = EnemyGenerator(self.subject)
         self.muse = Muse(self.subject)
         self.music = Music(self.subject)
-        self.pause = Pause(self.subject)
-        self.aoe = A_O_E(self.subject)
-        self.heal = Heal(self.subject)
         #
         self.wave = 0
-        self.money = 1000
+        self.money = 500
         self.max_hp = 10
         self.hp = self.max_hp
-        self.sound = pygame.mixer.Sound(os.path.join("sound", "background_01.wav"))
-#       self.sound = pygame.mixer.Sound(os.path.join("sound", "switch.wav"))
+        self.sound = pygame.mixer.Sound(os.path.join("sound", "switch.mp3"))
+
     def user_request(self, user_request: str):
         """ add tower, sell tower, upgrade tower"""
         self.subject.notify(user_request)
@@ -102,7 +97,7 @@ class GameModel:
     def towers_attack(self):
         for tw in self.__towers:
             tw.attack(self.__enemies.get())
-            
+
     def enemies_advance(self):
         self.__enemies.advance(self)
 
@@ -128,7 +123,7 @@ class GameModel:
     @property
     def plots(self):
         return self.__plots
-    
+
 
 
 

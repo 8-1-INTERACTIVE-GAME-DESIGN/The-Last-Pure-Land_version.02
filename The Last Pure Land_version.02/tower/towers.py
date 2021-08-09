@@ -3,7 +3,7 @@ import os
 import pygame
 
 RAPID_TEST_IMAGE = pygame.transform.scale(pygame.image.load(os.path.join("images", "rapid_test.png")), (70, 70))
-PCR_IMAGE = pygame.transform.scale(pygame.image.load(os.path.join("images", "pcr.png")), (70, 70))
+DISINFECTION_IMAGE = pygame.transform.scale(pygame.image.load(os.path.join("images", "Disinfection.png")), (70, 70))
 ALCOHOL_IMAGE = pygame.transform.scale(pygame.image.load(os.path.join("images", "alcohol.png")), (40, 70))
 PLOT_IMAGE = pygame.transform.scale(pygame.image.load(os.path.join("images", "vacant_lot.png")), (20, 20))
 
@@ -55,12 +55,12 @@ class Tower:
         return alcohol
 
     @classmethod
-    def PCR(cls, x, y):
-        pcr = cls(x, y, Snipe(), PCR_IMAGE)
-        pcr._range = [100, 105, 110, 115, 120, 125]  # tower attack range
-        pcr.cd_max_count = 120  # tower damage
-        pcr.value = [120, 140, 200, 280, 360, 400]
-        return pcr
+    def DISINFECTION(cls, x, y):
+        Disinfection = cls(x, y, Snipe(), DISINFECTION_IMAGE)
+        Disinfection._range = [100, 105, 110, 115, 120, 125]  # tower attack range
+        Disinfection.cd_max_count = 120  # tower damage
+        Disinfection.value = [120, 140, 200, 280, 360, 400]
+        return Disinfection
 
     def attack(self, enemy_group: list):
         # cd
