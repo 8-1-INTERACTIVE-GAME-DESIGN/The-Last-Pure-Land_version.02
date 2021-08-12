@@ -30,11 +30,12 @@ class EnemyGenerator:
     def update(self, user_request: str, model):
         
         """add new enemy"""
-        if user_request == "start new wave" and model.enemies_is_empty() and model.count_down <= 0:
+        if  model.enemies_is_empty() and model.attack == 1:
             model.wave += 1
             if model.wave >= 2:
                 model.wave = 2
             model.enemies.add(model.wave_to_enemies[model.wave])
+            model.attack = 0
 
 
 class TowerSeller:

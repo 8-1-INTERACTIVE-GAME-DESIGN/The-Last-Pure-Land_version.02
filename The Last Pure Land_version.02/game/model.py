@@ -20,6 +20,7 @@ class GameModel:
         self.wave_to_enemies = [30, 30, 50]
         self.count_down = -1
         self.count = 0
+        self.attack = 0
         # selected item
         self.selected_plot = None
         self.selected_tower = None
