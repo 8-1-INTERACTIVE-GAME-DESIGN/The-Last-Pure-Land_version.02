@@ -67,6 +67,7 @@ class GameControl:
                 self.model.count += 1
         elif self.model.count_down == 0:
             self.model.attack = 1
+            self.model.count_down = -1
         
         if self.model.wave == 2 and self.model.enemies_is_empty():
             self.view.draw_win(self)

@@ -38,7 +38,7 @@ class GameModel:
         self.heal = Heal(self.subject)
         #
         self.wave = 0
-        self.money = 1000
+        self.money = 5000
         self.max_hp = 10
         self.hp = self.max_hp
         self.sound = pygame.mixer.Sound(os.path.join("sound", "background_01.wav"))
