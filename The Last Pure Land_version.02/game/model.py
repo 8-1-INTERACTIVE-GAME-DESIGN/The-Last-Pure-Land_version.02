@@ -18,7 +18,7 @@ class GameModel:
         self.__plots = [Vacancy(702, 483), Vacancy(555,412), Vacancy(663,290),Vacancy(816, 342),Vacancy(970, 328),Vacancy(839, 200),
                         Vacancy(722, 124), Vacancy(492,225), Vacancy(409,344),Vacancy(406, 490),Vacancy(224, 268)]
         self.wave_to_enemies = [30, 30, 50]
-        self.count_down = -1
+        self.count_down = 5
         self.count = 0
         self.attack = 0
         # selected item
