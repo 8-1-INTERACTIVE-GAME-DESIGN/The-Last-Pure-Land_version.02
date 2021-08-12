@@ -52,7 +52,7 @@ class GameModel:
         self.selected_button = None
         # key event
         if events["keyboard key"] == pygame.K_n :
-            self.count_down = 5
+            self.count_down = 10
             self.count = 0
             return "start new wave"
         # mouse event

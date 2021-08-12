@@ -60,20 +60,17 @@ class GameControl:
             
         if self.model.count_down > 0:
             self.view.draw_wait(self.model.count_down)
-            if self.model.count >= 30:
+            if self.model.count >= 60:                
                 self.model.count_down -= 1
                 self.model.count = 0
             else:
                 self.model.count += 1
         elif self.model.count_down == 0:
-            self.events["keyboard key"] = pygame.K_n
             self.model.wave += 1
             if self.model.wave >= 2:
                 self.model.wave = 2
             self.model.enemies.add(self.model.wave_to_enemies[self.model.wave])
             self.model.count_down -=1
-        else: 
-            pass
 
 
     @property

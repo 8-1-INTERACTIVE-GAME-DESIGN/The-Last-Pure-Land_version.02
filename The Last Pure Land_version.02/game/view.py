@@ -91,7 +91,7 @@ class GameView:
         text_rect = text.get_rect()
         surface = pygame.Surface((WIN_WIDTH, WIN_HEIGHT), pygame.SRCALPHA)
         transparency = 100
-        pygame.draw.circle(surface, (128, 128, 128, transparency), (512,300),200)
+        pygame.draw.circle(surface, (128, 128, 128, transparency), (512,300),300)
         self.win.blit(surface, (0, 0))
         text_rect.center = (512,300)
         self.win.blit(text, text_rect)
