@@ -84,6 +84,18 @@ class GameView:
                             end = False
                             break
                 pygame.display.update()
+                
+    def draw_wait(self,wait:int):
+        font= pygame.font.SysFont("comicsansms",100)
+        text = font.render(str(wait), True, (255,255,255))
+        text_rect = text.get_rect()
+        surface = pygame.Surface((WIN_WIDTH, WIN_HEIGHT), pygame.SRCALPHA)
+        transparency = 100
+        pygame.draw.circle(surface, (128, 128, 128, transparency), (512,300),200)
+        self.win.blit(surface, (0, 0))
+        text_rect.center = (512,300)
+        self.win.blit(text, text_rect)
+
 
 
 

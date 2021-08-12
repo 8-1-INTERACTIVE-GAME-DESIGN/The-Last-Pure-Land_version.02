@@ -18,6 +18,8 @@ class GameModel:
         self.__plots = [Vacancy(702, 483), Vacancy(555,412), Vacancy(663,290),Vacancy(816, 342),Vacancy(970, 328),Vacancy(839, 200),
                         Vacancy(722, 124), Vacancy(492,225), Vacancy(409,344),Vacancy(406, 490),Vacancy(224, 268)]
         self.wave_to_enemies = [30, 30, 50]
+        self.count_down = 5
+        self.count = 0
         # selected item
         self.selected_plot = None
         self.selected_tower = None
@@ -49,7 +51,9 @@ class GameModel:
         # initial
         self.selected_button = None
         # key event
-        if events["keyboard key"] is not None:
+        if events["keyboard key"] == pygame.K_n :
+            self.count_down = 5
+            self.count = 0
             return "start new wave"
         # mouse event
         if events["mouse position"] is not None:
