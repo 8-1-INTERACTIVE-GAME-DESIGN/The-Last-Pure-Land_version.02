@@ -63,8 +63,8 @@ class TowerDeveloper:
             # use model.selected_tower to access the selected tower data
             # use model.money to access to money data
             if model.money > model.selected_tower.get_upgrade_cost():
-                model.selected_tower.level += 1
                 model.money -= model.selected_tower.get_upgrade_cost()
+                model.selected_tower.level += 1
             pass
 
 
