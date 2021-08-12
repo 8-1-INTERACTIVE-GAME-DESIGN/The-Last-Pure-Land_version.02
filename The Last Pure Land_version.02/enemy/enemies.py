@@ -10,9 +10,9 @@ from color_settings import *
 global wave
 wave = 0
 pygame.init()
-ENEMY_IMAGE_1 = pygame.image.load(os.path.join("images", "virus_1.png"))
-ENEMY_IMAGE_2 = pygame.image.load(os.path.join("images", "virus_2.png"))
-ENEMY_IMAGE_3 = pygame.image.load(os.path.join("images", "virus_3.png"))
+ENEMY_IMAGE_Alpha = pygame.image.load(os.path.join("images", "virus_1.png"))
+ENEMY_IMAGE_Gamma = pygame.image.load(os.path.join("images", "virus_2.png"))
+ENEMY_IMAGE_Delta = pygame.image.load(os.path.join("images", "virus_3.png"))
 # set music
 die_sound = pygame.mixer.Sound("sound/die_01.wav")
 die_sound.set_volume(0.2)
@@ -54,7 +54,7 @@ class Enemy:
             self.move_count = 0
             self.path_index += 1
             self.rect.center = self.path[self.path_index]
-class Enemy1(Enemy):
+class Enemy_Alpha(Enemy):
     def __init__(self):
         self.p = random.randint(0,1)
         if self.p == 0:
@@ -68,7 +68,7 @@ class Enemy1(Enemy):
             self.stride = 1.5
         else:
             self.stride = 1.2
-        self.image = pygame.transform.scale(ENEMY_IMAGE_1, (40, 40))
+        self.image = pygame.transform.scale(ENEMY_IMAGE_Alpha, (40, 40))
         self.rect = self.image.get_rect()
         self.rect.center = self.path[self.path_index]
         self.path_index = 0
@@ -79,7 +79,7 @@ class Enemy1(Enemy):
             self.health = 10
         self.max_health = 10
 
-class Enemy2(Enemy):
+class Enemy_Gamma(Enemy):
     def __init__(self):
         self.p = random.randint(0,1)
         if self.p == 0:
@@ -93,7 +93,7 @@ class Enemy2(Enemy):
             self.stride = 1.2
         else:
             self.stride = 1.0
-        self.image = pygame.transform.scale(ENEMY_IMAGE_2, (40, 40))
+        self.image = pygame.transform.scale(ENEMY_IMAGE_Gamma, (40, 40))
         self.rect = self.image.get_rect()
         self.rect.center = self.path[self.path_index]
         self.path_index = 0
@@ -102,7 +102,7 @@ class Enemy2(Enemy):
         self.max_health = 15
         
                 
-class Enemy3(Enemy):
+class Enemy_Delta(Enemy):
     def __init__(self):
         self.p = random.randint(0,1)
         if self.p == 0:
@@ -116,7 +116,7 @@ class Enemy3(Enemy):
             self.stride = 1.0
         else:
             self.stride = 0.8
-        self.image = pygame.transform.scale(ENEMY_IMAGE_3, (40, 40))
+        self.image = pygame.transform.scale(ENEMY_IMAGE_Delta, (40, 40))
         self.rect = self.image.get_rect()
         self.rect.center = self.path[self.path_index]
         self.path_index = 0
@@ -170,11 +170,11 @@ class EnemyGroup:
                 rand_num = randint(0,100)
                 class_enemy = rand_num % 3
                 if class_enemy == 0:
-                    self.__reserved_members.append(Enemy1())#append進去
+                    self.__reserved_members.append(Enemy_Alpha())#append進去
                 elif class_enemy == 1:
-                    self.__reserved_members.append(Enemy2())#append進去
+                    self.__reserved_members.append(Enemy_Delta())#append進去
                 elif class_enemy == 2:
-                    self.__reserved_members.append(Enemy3())#append進去
+                    self.__reserved_members.append(Enemy_Gamma())#append進去
 
             return True
             

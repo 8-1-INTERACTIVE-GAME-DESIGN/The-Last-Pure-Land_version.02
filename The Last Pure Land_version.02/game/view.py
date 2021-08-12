@@ -85,16 +85,39 @@ class GameView:
                             break
                 pygame.display.update()
                 
-    def draw_wait(self,wait:int):
+    def draw_count_down(self,wait):
         font= pygame.font.SysFont("comicsansms",100)
-        text = font.render(str(wait), True, (255,255,255))
-        text_rect = text.get_rect()
+        count_down_text = font.render(str(wait), True, (255,255,255))
+        count_down_rect = count_down_text.get_rect()
         surface = pygame.Surface((WIN_WIDTH, WIN_HEIGHT), pygame.SRCALPHA)
         transparency = 100
-        pygame.draw.circle(surface, (128, 128, 128, transparency), (512,300),300)
+        pygame.draw.circle(surface, (128, 128, 128, transparency), (512,300),150)
         self.win.blit(surface, (0, 0))
-        text_rect.center = (512,300)
-        self.win.blit(text, text_rect)
+        count_down_rect.center = (512,300)
+        self.win.blit(count_down_text, count_down_rect)
+        
+    def draw_win(self, model):
+#         largeText = pygame.font.SysFont("comicsansms",115)
+#         TextSurf = largeText.render('You dead', True, (255,0,0))
+#         self.win.blit(TextSurf, (WIN_WIDTH // 3 -50 , WIN_HEIGHT // 3))
+        win = True
+        pygame.init()
+        pygame.font.init()
+        while win:
+                win = True
+                largeText = pygame.font.SysFont("comicsansms",115)
+                TextSurf = largeText.render('You win', True, (255,255,255))
+                self.win.blit(TextSurf, (WIN_WIDTH // 3 - 50  , WIN_HEIGHT // 3))
+                for event in pygame.event.get():
+                    if event.type == pygame.QUIT:
+                        model.events["game quit"] = True
+                        win = False
+                        break
+                    elif event.type == pygame.KEYDOWN :
+                        if event.key == pygame.K_r:  # Unpausing
+                            win = False
+                            break
+                pygame.display.update()
 
 
 

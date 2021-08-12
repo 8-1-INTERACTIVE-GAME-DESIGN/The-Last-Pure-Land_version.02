@@ -37,7 +37,7 @@ class GameModel:
         self.heal = Heal(self.subject)
         #
         self.wave = 0
-        self.money = 1000
+        self.money = 5000
         self.max_hp = 10
         self.hp = self.max_hp
         self.sound = pygame.mixer.Sound(os.path.join("sound", "background_01.wav"))
@@ -52,7 +52,7 @@ class GameModel:
         self.selected_button = None
         # key event
         if events["keyboard key"] == pygame.K_n :
-            self.count_down = 10
+            self.count_down = 5
             self.count = 0
             return "start new wave"
         # mouse event
