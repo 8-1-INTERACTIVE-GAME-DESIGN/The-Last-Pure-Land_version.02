@@ -34,6 +34,11 @@ class EnemyGenerator:
             model.wave += 1
             if model.wave >= 2:
                 model.wave = 2
+                model.money += 500
+                if model.hp <= 5:
+                    model.hp += 5
+                else:
+                    model.hp = 10
             model.enemies.add(model.wave_to_enemies[model.wave])
             model.attack = 0
 

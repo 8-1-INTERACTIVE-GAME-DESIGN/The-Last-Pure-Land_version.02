@@ -17,7 +17,7 @@ class GameModel:
         self.__main_menu = MainMenu()
         self.__plots = [Vacancy(702, 483), Vacancy(555,412), Vacancy(663,290),Vacancy(816, 342),Vacancy(970, 328),Vacancy(839, 200),
                         Vacancy(722, 124), Vacancy(492,225), Vacancy(409,344),Vacancy(406, 490),Vacancy(224, 268)]
-        self.wave_to_enemies = [30, 30, 50]
+        self.wave_to_enemies = [20, 20, 40]
         self.count_down = 5
         self.count = 0
         self.attack = 0
@@ -38,7 +38,7 @@ class GameModel:
         self.heal = Heal(self.subject)
         #
         self.wave = 0
-        self.money = 5000
+        self.money = 1000
         self.max_hp = 10
         self.hp = self.max_hp
         self.sound = pygame.mixer.Sound(os.path.join("sound", "background_01.wav"))
