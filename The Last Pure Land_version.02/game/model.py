@@ -53,8 +53,9 @@ class GameModel:
         self.selected_button = None
         # key event
         if events["keyboard key"] == pygame.K_n :
-            self.count_down = 5
-            self.count = 0
+            if  self.enemies_is_empty() and self.count_down < 0:
+                self.count_down = 5
+                self.count = 0
             return "start new wave"
         # mouse event
         if events["mouse position"] is not None:

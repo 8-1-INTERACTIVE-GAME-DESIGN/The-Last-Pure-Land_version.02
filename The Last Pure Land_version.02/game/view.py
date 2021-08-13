@@ -72,7 +72,7 @@ class GameView:
         while end and model.events["game quit"] == False: 
                 end = True
                 largeText = pygame.font.SysFont("comicsansms",115)
-                TextSurf = largeText.render('You dead', True, (255,255,255))
+                TextSurf = largeText.render('Game over', True, (255,255,255))
                 self.win.blit(TextSurf, (WIN_WIDTH // 3 - 50  , WIN_HEIGHT // 3))
                 for event in pygame.event.get():
                     if event.type == pygame.QUIT:

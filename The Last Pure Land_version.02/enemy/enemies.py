@@ -82,7 +82,7 @@ class Enemy_Alpha(Enemy):
 class Enemy_Gamma(Enemy):
     def __init__(self):
         self.p = random.randint(0,1)
-        if self.p == 0:
+        if self.p %3 == 0:
             self.path = PATH
         else:
             self.path = PATH2
