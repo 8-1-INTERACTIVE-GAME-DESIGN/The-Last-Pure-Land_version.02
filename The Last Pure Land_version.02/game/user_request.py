@@ -41,7 +41,7 @@ class EnemyGenerator:
                     model.hp = 10
             model.enemies.add(model.wave_to_enemies[model.wave])
             model.attack = 0
-            self.model.count_down = -1
+            model.count_down = -1
 
 
 class TowerSeller:
